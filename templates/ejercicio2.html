@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Ejercicio 2 - Comparador de Nombres{% endblock %}
+
+{% block content %}
+<div class="card card-ej2">
+    <form method="POST" action="{{ url_for('ejercicio2') }}">
+        <div class="form-group">
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text" id="nombre1" name="nombre1" value="{{ nombre1 }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text" id="nombre2" name="nombre2" value="{{ nombre2 }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text" id="nombre3" name="nombre3" value="{{ nombre3 }}" required>
+        </div>
+
+        <div class="center-btn">
+            <button type="submit" class="btn-submit">Enviar</button>
+        </div>
+    </form>
+
+    {% if nombre_mayor is not none %}
+    <div class="resultado-ej2">
+        <p>El nombre con mayor cantidad de caracteres es : {{ nombre_mayor }}</p>
+        <p>El nombre tiene : {{ cantidad_caracteres }} caracteres</p>
+    </div>
+    {% endif %}
+
+<!-- atribucion personal, asi no hay que apretar el boton atras del navegador  -->
+    <a href="{{ url_for('index') }}" class="link-volver">← Volver al menú</a>
+</div>
+{% endblock %}
